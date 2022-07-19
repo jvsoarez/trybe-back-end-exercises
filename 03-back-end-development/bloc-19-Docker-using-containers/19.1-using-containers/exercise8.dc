@@ -1,0 +1,7 @@
+8 - Inicie o mesmo contêiner novamente, sem criar outro. Valide se ele está ativo na lista de contêiners.
+
+comando:
+
+docker container start (CONTAINER ID || CONTAINER NAME)
+
+"Pode ser colocado o id do container ou o name que foi definido pelo desenvolvedor ou aleatóriamente. Sem parenteses."

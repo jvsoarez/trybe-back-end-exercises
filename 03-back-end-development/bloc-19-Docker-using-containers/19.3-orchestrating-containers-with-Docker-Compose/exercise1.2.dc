@@ -1,0 +1,3 @@
+2 - Crie um container para manter um servidor httpd:2.4 Apache e vincule sua porta interna com a porta 4545 da sua máquina local.
+
+docker container run -d --name my_container_exercise -p 4545:80 -v "/home/jvsoarez/Área de Trabalho/Trybe/trybe-exercises/03-back-end-development/bloc-19-Docker-using-containers/19.3-orchestrating-containers-with-Docker-Compose":/usr/local/apache2/htdocs httpd:2.4

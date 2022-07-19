@@ -1,0 +1,3 @@
+5 - Gere uma build e execute um contêiner baseado em sua imagem sem passar nenhum comando.
+
+docker image build ./ -t cowsay

@@ -1,0 +1,8 @@
+12 - Remova somente o contêiner criado para esse exercício.
+
+comando:
+
+docker container rm (CONTAINER ID || CONTAINER NAME)
+
+
+"Pode ser colocado o id do container ou o name que foi definido pelo desenvolvedor ou aleatóriamente. Sem parenteses."

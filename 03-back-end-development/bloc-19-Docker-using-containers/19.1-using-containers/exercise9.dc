@@ -1,0 +1,7 @@
+9 - Retome o contêiner que foi criado anteriormente neste exercício.
+
+comando: 
+
+docker container attach (CONTAINER ID || CONTAINER NAME)
+
+"Pode ser colocado o id do container ou o name que foi definido pelo desenvolvedor ou aleatóriamente. Sem parenteses."
