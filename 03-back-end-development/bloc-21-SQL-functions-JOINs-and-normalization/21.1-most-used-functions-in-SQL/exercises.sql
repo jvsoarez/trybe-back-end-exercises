@@ -57,9 +57,7 @@ from hr.employees
 group by job_id
 having not job_id = 'it_prog'
 order by media_salarial desc;
-
 -- or
-
 select 
 	job_id as profissao, 
 	avg(salary) media_salarial
@@ -67,3 +65,89 @@ from hr.employees
 where job_id <> 'it_prog'
 group by job_id
 order by media_salarial desc;
+
+-- 10. Escreva um query que exiba média salarial e o número de funcionários de todos os departamentos com mais de dez funcionários. Dica: agrupe pelo department_id.
+select 
+	department_id,
+	avg(salary) as media_salarial,
+  count(*) as num_de_funcionarios
+from hr.employees
+group by department_id
+having num_de_funcionarios > 10;
+
+-- 11. Escreva uma query que atualize a coluna phone_number, de modo que todos os telefones iniciados por 515 agora devem iniciar com 777.
+set SQL_SAFE_UPDATES = 0;
+
+update hr.employees
+set phone_number = replace(phone_number, '515', '777')
+where phone_number LIKE '515%';
+
+set SQL_SAFE_UPDATES = 1;
+
+-- 12. Escreva uma query que só exiba as informações dos funcionários cujo o primeiro nome tenha oito ou mais caracteres.
+
+select *
+from hr.employees
+where length(first_name) > 7;
+
+-- 13. Escreva uma query que exiba as seguintes informações de cada funcionário: id, primeiro nome e ano no qual foi contratado (exiba somente o ano).
+
+select 
+	employee_id, 
+  first_name,
+  year(hire_date)
+from hr.employees;
+
+-- 14. Escreva uma query que exiba as seguintes informações de cada funcionário: id, primeiro nome e dia do mês no qual foi contratado (exiba somente o dia).
+
+select 
+	employee_id, 
+  first_name,
+  day(hire_date)
+from hr.employees;
+
+-- 15. Escreva uma query que exiba as seguintes informações de cada funcionário: id, primeiro nome e mês no qual foi contratado (exiba somente o mês).
+
+select 
+	employee_id, 
+  first_name,
+  month(hire_date)
+from hr.employees;
+
+-- 16. Escreva uma query que exiba os nomes dos funcionários em letra maiúscula.
+
+select 
+	ucase(concat(first_name, " ", last_name)) as nome_completo
+from hr.employees;
+
+-- 17: Escreva uma query que exiba o sobrenome e a data de contratação de todos os funcionário contratados em julho de 1987.
+
+select 
+  last_name,
+  hire_date
+from hr.employees
+where hire_date like '1987-07%';
+
+-- or
+
+select 
+  last_name,
+  hire_date
+from hr.employees
+where hire_date between '1987-07-01' and '1987-07-31';
+
+-- Ou
+
+select 
+  last_name,
+  hire_date
+from hr.employees
+where MONTH(hire_date)= 7 and YEAR(hire_date) = 1987;
+
+-- 18: Escreva uma query que exiba as seguintes informações de cada funcionário: nome, sobrenome, tempo que trabalha na empresa (em dias).
+
+select 
+	first_name,
+    last_name,
+    datediff(current_date(), hire_date) as dias_como_empregado
+from hr.employees;
