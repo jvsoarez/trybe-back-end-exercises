@@ -71,3 +71,14 @@ from
 	movies as m
 inner join 
 	box_office as bo on m.id = bo.movie_id;
+
+--  Exercício 2: Utilizando o INNER JOIN, faça uma busca que retorne o número de vendas para cada filme que possui um número maior de vendas internacionais (international_sales) do que vendas nacionais (domestic_sales).
+
+select 
+	m.title, bo.international_sales + bo.domestic_sales as vendas_totais
+from 
+	movies as m
+inner join 
+	box_office as bo on m.id = bo.movie_id
+where 
+	bo.international_sales > bo.domestic_sales;
