@@ -115,4 +115,16 @@ right join
 order by 
 	t.name;
 
-  
+--  Exercício 6: Utilizando o INNER JOIN, selecione todas as informações dos filmes que estão em cartaz (possuem theater_id diferente de NULL) com avaliação maior que 8.
+
+select 
+	m.*,
+    bo.rating
+from 
+	movies as m
+inner join 
+	box_office as bo on m.id = bo.movie_id
+where 
+	m.theater_id is not null 
+		and bo.rating > 8;
+
