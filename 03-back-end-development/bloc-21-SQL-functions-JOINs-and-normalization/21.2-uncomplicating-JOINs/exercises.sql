@@ -82,3 +82,13 @@ inner join
 	box_office as bo on m.id = bo.movie_id
 where 
 	bo.international_sales > bo.domestic_sales;
+
+-- Exercício 3: Utilizando o INNER JOIN, faça uma busca que retorne os filmes e sua avaliação (rating) em ordem decrescente.
+
+select 
+	m.title, bo.rating
+from
+	movies as m
+inner join
+	box_office as bo on m.id = bo.movie_id
+order by bo.rating DESC;
